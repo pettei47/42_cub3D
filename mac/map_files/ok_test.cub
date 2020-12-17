@@ -1,4 +1,4 @@
-R 520 380
+R 640 380
 NO ./images/kita.xpm
 SO ./images/minami.xpm
 WE ./images/nishi.xpm
