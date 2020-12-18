@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2020/12/16 21:07:31 by teppei           ###   ########.fr        #
+#    Updated: 2020/12/18 23:58:59 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ clean:
 	rm -f $(OBJS) */*.gch
 	rm -rf *.dSYM
 	rm -f *.bmp
+	rm -f */*.bmp
 
 fclean: clean
 	rm -f $(NAME)
