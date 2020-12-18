@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 20:34:07 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/16 21:13:02 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/18 21:55:03 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void		make_bmp(t_all *a)
 	fd = open("capture_cub3D.bmp", O_CREAT | O_WRONLY, 0644);
 	if (fd == -1)
 		error_free_a("cannot open file bmp", a);
-	n_pixel = (a->e->win_x + a->e->win_x % 64) * a->e->win_y;
+	n_pixel = a->e->win_x * a->e->win_y;
 	if (!(pixel_data = (char *)malloc(sizeof(char) * n_pixel * 4)))
 		error_free_a("malloc error in make_bmp", a);
 	build_header(a, bmp_header, n_pixel);
