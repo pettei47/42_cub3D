@@ -6,5 +6,9 @@ a.out
 */*.o
 *.bmp
 */*.bmp
+*/cp_*
+cp_*
+bu_*
+*/bu_*
 *-e
 capture_map/*-e
