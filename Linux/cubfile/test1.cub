@@ -1,0 +1,17 @@
+R 640 480
+NO ./pics/kita.xpm
+EA ./pics/higashi.xpm
+SO ./pics/minami.xpm
+WE ./pics/nishi.xpm
+
+S ./pics/barrel.xpm
+F 170,140,100
+C 180,200,220
+
+1111111
+1020021
+1200221
+1001001
+1030001
+10N0201
+1111111
