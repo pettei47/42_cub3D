@@ -24,7 +24,7 @@ OBJS	=	$(SRCS:%.c=%.o)
 
 HEAD	=	./includes/cub3d.h
 INCS	=	-I./includes
-LINK	=	-L./libraries -L/usr/local/lib
+LINK	=	-L./libraries #-L/usr/local/lib
 LIBS	=	-lft -lgnl -lftprintf -lmlx -lm -lXext -lX11
 
 all: $(NAME)
@@ -59,8 +59,10 @@ FTPRINTF:
 
 MLX:
 	make -C minilibx-linux/
-	cp minilibx-linux/libmlx*.a /usr/local/lib/
-	cp minilibx-linux/mlx.h /usr/local/include/
+	cp minilibx-linux/libmlx*.a ./libraries
+	#cp minilibx-linux/mlx.h ./
+	#cp minilibx-linux/libmlx*.a /usr/local/lib/
+	#cp minilibx-linux/mlx.h /usr/local/include/
 
 re: fclean all
 cl: all clean
