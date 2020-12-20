@@ -21,9 +21,8 @@
 # include "libft.h"
 # include "libftprintf.h"
 # include "get_next_line.h"
-# include <mlx.h>
 # include <stdint.h>
-//# include "mlx.h"
+# include "mlx.h"
 
 # define SAFE_FREE(ptr) { free(ptr); ptr = NULL; }
 # define MAP_WIDTH 257
