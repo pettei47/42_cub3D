@@ -37,9 +37,6 @@ void	init_a(t_all *a)
 
 int		quit_normally(void *a)
 {
-	//t_all *b;
-
-	//b = a;
 	my_free_a(a);
 	exit(EXIT_SUCCESS);
 	return (0);

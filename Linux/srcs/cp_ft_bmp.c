@@ -78,7 +78,8 @@ void		make_bmp(t_all *a)
 	fd = open("capture_cub3D.bmp", O_CREAT | O_WRONLY, 0644);
 	if (fd == -1)
 		error_free_a("cannot open file bmp", a);
-	x_pad = a->e->win_x % 64;
+	//x_pad = a->e->win_x % 64;
+	x_pad = a->e->win_x;
 	n_pixel = (a->e->win_x + x_pad) * a->e->win_y;
 	if (!(pixel_data = (char *)malloc(sizeof(char) * n_pixel * 4)))
 		error_free_a("malloc error in make_bmp", a);

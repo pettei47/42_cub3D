@@ -35,7 +35,6 @@ $(NAME): $(OBJS) LIBFT MLX GNL FTPRINTF
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJS) */*.gch
-	rm -rf *.dSYM
 	rm -f *.bmp
 
 fclean: clean
@@ -45,10 +44,8 @@ alclean: fclean
 	make fclean -C utils/libft
 	make fclean -C utils/ft_printf
 	make fclean -C utils/gnl
-	make clean -C minilibx_mms_20200219/
-	rm -f libmlx.dylib
+	make clean -C minilibx-linux/
 	rm -f libraries/*.a
-	rm -f libraries/libmlx.dylib
 
 LIBFT:
 	make -C utils/libft
@@ -61,9 +58,9 @@ FTPRINTF:
 	make -C utils/ft_printf
 
 MLX:
-	make -C minilibx_mms_20200219/
-	cp minilibx_mms_20200219/libmlx.dylib ./libraries
-	cp minilibx_mms_20200219/libmlx.dylib .
+	make -C minilibx-linux/
+	cp minilibx-linux/libmlx*.a /usr/local/lib/
+	cp minilibx-linux/mlx.h /usr/local/include/
 
 re: fclean all
 cl: all clean
