@@ -1,5 +1,5 @@
 i=0
-count=128
+count=129
 while [ $i -lt $count ]
 do
 	file="${i}_cap.cub"

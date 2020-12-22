@@ -12,3 +12,5 @@ bu_*
 */bu_*
 *-e
 capture_map/*-e
+capture_file/*
+cubfile/

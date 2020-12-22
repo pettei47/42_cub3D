@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 20:34:07 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/18 21:55:03 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/22 20:39:51 by 01041794         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,18 @@ static void	build_pixel_data(t_all *a, char *pixel_data)
 	int	i;
 	int	j;
 	int	k;
-	int	pad;
 	int	p;
 
 	i = a->e->win_y - 1;
 	k = 0;
-	pad = a->e->win_x % 64;
 	while (i >= 0)
 	{
 		j = 0;
+		p = 0;
 		while (j < a->e->win_x * 4)
 			pixel_data[i * a->e->win_x * 4 + j++] = a->img.addr[k++];
-		p = 0;
-		while (p < pad)
-			pixel_data[i * a->e->win_x * 4 + j + p++] = 0;
+		while (p++ < (a->img.line - (a->e->win_x * 4)))
+			k++;
 		i--;
 	}
 }
@@ -78,7 +76,7 @@ void		make_bmp(t_all *a)
 	fd = open("capture_cub3D.bmp", O_CREAT | O_WRONLY, 0644);
 	if (fd == -1)
 		error_free_a("cannot open file bmp", a);
-	n_pixel = a->e->win_x * a->e->win_y;
+	n_pixel = a->img.line * a->e->win_y;
 	if (!(pixel_data = (char *)malloc(sizeof(char) * n_pixel * 4)))
 		error_free_a("malloc error in make_bmp", a);
 	build_header(a, bmp_header, n_pixel);
