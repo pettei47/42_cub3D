@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2020/12/22 21:15:34 by teppei           ###   ########.fr        #
+#    Updated: 2020/12/23 02:44:54 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,11 @@ OBJS	=	$(SRCS:%.c=%.o)
 HEAD	=	./includes/cub3d.h
 INCS	=	-I./includes
 LINK	=	-L./libraries
-LIBS	=	-lft -lgnl -lftprintf -lmlx
+LIBS	=	-lft -lgnl -lmlx
 
 all: $(NAME)
 
-$(NAME): $(OBJS) LIBFT MLX GNL FTPRINTF
+$(NAME): $(OBJS) LIBFT MLX GNL
 	$(CC) -o $(NAME) $(OBJS) $(LINK) $(LIBS)
 %.o: %.c $(HEAD)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -44,7 +44,6 @@ fclean: clean
 
 alclean: fclean
 	make fclean -C utils/libft
-	make fclean -C utils/ft_printf
 	make fclean -C utils/gnl
 	make clean -C minilibx_mms_20200219/
 	rm -f libmlx.dylib
@@ -57,9 +56,6 @@ LIBFT:
 
 GNL:
 	make -C utils/gnl
-
-FTPRINTF:
-	make -C utils/ft_printf
 
 MLX:
 	make -C minilibx_mms_20200219/

@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2020/12/22 21:29:32 by teppei           ###   ########.fr        #
+#    Updated: 2020/12/23 02:53:06 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,11 @@ OBJS	=	$(SRCS:%.c=%.o)
 HEAD	=	./includes/cub3d.h
 INCS	=	-I./includes
 LINK	=	-L./libraries
-LIBS	=	-lft -lgnl -lftprintf -lmlx -lm -lXext -lX11
+LIBS	=	-lft -lgnl -lmlx -lm -lXext -lX11
 
 all: $(NAME)
 
-$(NAME): $(OBJS) LIBFT MLX GNL FTPRINTF
+$(NAME): $(OBJS) LIBFT MLX GNL
 	$(CC) -o $(NAME) $(OBJS) $(LINK) $(INCS) $(LIBS)
 %.o: %.c $(HEAD)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -42,7 +42,6 @@ fclean: clean
 
 alclean: fclean
 	make fclean -C utils/libft
-	make fclean -C utils/ft_printf
 	make fclean -C utils/gnl
 	make clean -C minilibx-linux/
 	rm -f libraries/*.a
@@ -53,9 +52,6 @@ LIBFT:
 
 GNL:
 	make -C utils/gnl
-
-FTPRINTF:
-	make -C utils/ft_printf
 
 MLX:
 	make -C minilibx-linux/

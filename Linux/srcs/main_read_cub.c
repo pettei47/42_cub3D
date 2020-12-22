@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 00:26:18 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/14 00:39:29 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/23 02:50:19 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ int		main(int argc, char **argv)
 	get_sprite(&a);
 	set_move_speed(&a);
 	load_window(&a);
-	ft_printf(GREEN);
-	ft_printf("*** SUCCESS LOAD CUB ***\n");
-	ft_printf(DEFAULT);
+	ft_putstr_fd(GREEN, 1);
+	ft_putstr_fd("*** SUCCESS LOAD CUB ***\n", 1);
+	ft_putstr_fd(DEFAULT, 1);
 	run_mlx(&a);
 	my_free_a(&a);
 	exit(0);
