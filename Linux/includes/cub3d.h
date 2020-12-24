@@ -19,7 +19,6 @@
 # include <math.h>
 # include <sysexits.h>
 # include "libft.h"
-# include "libftprintf.h"
 # include "get_next_line.h"
 # include <stdint.h>
 # include "mlx.h"
