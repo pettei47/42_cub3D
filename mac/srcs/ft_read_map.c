@@ -95,7 +95,7 @@ void	map_devide_check2(int fd, char **line, t_elem *e)
 			SAFE_FREE(line);
 			error_devide("somthing exist under map", *line, e);
 		}
-		SAFE_FREE(line);
+		SAFE_FREE(*line);
 	}
 }
 
