@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 14:15:03 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/26 22:38:23 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/27 00:43:22 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,20 +82,14 @@ int		ft_read_map(int *bit, int fd, char **line, t_elem *e)
 
 void	map_devide_check2(int fd, char **line, t_elem *e)
 {
-	if (ft_strncmp(*line, "", 2) != 0)
-	{
-		close(fd);
-		error_devide("somthing exist under map", *line, e);
-	}
 	while (get_next_line(fd, line))
 	{
 		if (ft_strncmp(*line, "", 2) != 0)
 		{
 			close(fd);
-			SAFE_FREE(line);
 			error_devide("somthing exist under map", *line, e);
 		}
-		SAFE_FREE(line);
+		SAFE_FREE(*line);
 	}
 }
 
@@ -116,11 +110,13 @@ void	map_devide_check(char *cub, t_elem *e)
 		if (line[i] == '0' || line[i] == '1')
 			readm = 1;
 		if (readm == 1 && ft_strncmp(line, "", 2) == 0)
+		{
 			readm = 2;
+			SAFE_FREE(line);
+			map_devide_check2(fd, &line, e);
+		}
 		SAFE_FREE(line);
 	}
-	if (readm == 2)
-		map_devide_check2(fd, &line, e);
 	close(fd);
 	SAFE_FREE(line);
 }
