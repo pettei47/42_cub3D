@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_read_cub.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 00:26:18 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/23 02:50:19 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/27 01:07:10 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int		quit_normally(void *a)
 
 void	run_mlx(t_all *a)
 {
-	a->win = mlx_new_window(a->mlx_p, a->e->win_x, a->e->win_y, "cub3D");
 	a->img.img = mlx_new_image(a->mlx_p, a->e->win_x, a->e->win_y);
 	a->img.addr = mlx_get_data_addr(a->img.img, &a->img.bpp, \
 									&a->img.line, &a->img.endian);
 	if (a->e->save == 1)
 		make_bmp(a);
+	a->win = mlx_new_window(a->mlx_p, a->e->win_x, a->e->win_y, "cub3D");
 	mlx_hook(a->win, 2, 1L << 0, press_key, a);
 	mlx_hook(a->win, 3, 1L << 1, release_key, a);
 	mlx_hook(a->win, 17, 1L << 17, quit_normally, a);
@@ -81,6 +81,5 @@ int		main(int argc, char **argv)
 	ft_putstr_fd(DEFAULT, 1);
 	run_mlx(&a);
 	my_free_a(&a);
-	exit(0);
 	return (0);
 }
