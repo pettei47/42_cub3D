@@ -49,6 +49,7 @@ alclean: fclean
 	rm -f libmlx.dylib
 	rm -f libraries/*.a
 	rm -f libraries/libmlx.dylib
+	if [ ! -d libraries ]; then mkdir libraries; fi
 
 LIBFT:
 	make -C utils/libft
