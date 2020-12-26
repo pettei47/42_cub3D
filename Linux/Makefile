@@ -45,7 +45,7 @@ alclean: fclean
 	make fclean -C utils/gnl
 	make clean -C minilibx-linux/
 	rm -f libraries/*.a
-	if [ ! -d libraries ]; mkdir libraries; fi
+	if [ ! -d libraries ]; then mkdir libraries; fi
 
 LIBFT:
 	make -C utils/libft
