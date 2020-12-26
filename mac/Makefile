@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2020/12/26 18:14:22 by teppei           ###   ########.fr        #
+#    Updated: 2020/12/26 20:56:40 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LIBS	=	-lft -lgnl -lmlx
 
 all: $(NAME)
 
-$(NAME): $(OBJS) LIBFT MLX GNL
+$(NAME): $(OBJS)
 	make -C utils/libft
 	cp utils/libft/libft.a ./libraries
 	make -C utils/gnl

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_read_cub.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 00:26:18 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/23 02:51:26 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/26 22:39:42 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		quit_normally(void *a)
 
 	b = a;
 	my_free_a(a);
+	while(1);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -84,6 +85,5 @@ int		main(int argc, char **argv)
 	ft_putstr_fd(DEFAULT, 1);
 	run_mlx(&a);
 	my_free_a(&a);
-	exit(0);
 	return (0);
 }

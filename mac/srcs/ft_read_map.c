@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 14:15:03 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/26 18:54:00 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/26 22:38:23 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,10 @@ void	map_devide_check2(int fd, char **line, t_elem *e)
 		if (ft_strncmp(*line, "", 2) != 0)
 		{
 			close(fd);
+			SAFE_FREE(line);
 			error_devide("somthing exist under map", *line, e);
 		}
+		SAFE_FREE(line);
 	}
 }
 
