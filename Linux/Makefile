@@ -29,7 +29,13 @@ LIBS	=	-lft -lgnl -lmlx -lm -lXext -lX11
 
 all: $(NAME)
 
-$(NAME): $(OBJS) LIBFT MLX GNL
+$(NAME): $(OBJS)
+	make -C utils/libft
+	cp utils/libft/libft.a ./libraries/
+	make -C utils/gnl
+	cp utils/gnl/libgnl.a ./libraries/
+	make -C minilibx-linux
+	cp minilibx-linux/libmlx*.a ./libraries/
 	$(CC) -o $(NAME) $(OBJS) $(LINK) $(INCS) $(LIBS)
 %.o: %.c $(HEAD)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -46,17 +52,6 @@ alclean: fclean
 	make clean -C minilibx-linux/
 	rm -f libraries/*.a
 	if [ ! -d libraries ]; then mkdir libraries; fi
-
-LIBFT:
-	make -C utils/libft
-	cp utils/libft/libft.a ./libraries
-
-GNL:
-	make -C utils/gnl
-
-MLX:
-	make -C minilibx-linux/
-	cp minilibx-linux/libmlx*.a ./libraries
 
 re: fclean all
 cl: all clean
