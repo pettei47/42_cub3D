@@ -30,6 +30,13 @@ LIBS	=	-lft -lgnl -lmlx
 all: $(NAME)
 
 $(NAME): $(OBJS) LIBFT MLX GNL
+	make -C utils/libft
+	cp utils/libft/libft.a ./libraries
+	make -C utils/gnl
+	cp utils/gnl/libgnl.a ./libraries
+	make -C minilibx_mms_20200219/
+	cp minilibx_mms_20200219/libmlx.dylib ./libraries
+	cp minilibx_mms_20200219/libmlx.dylib .
 	$(CC) -o $(NAME) $(OBJS) $(LINK) $(LIBS)
 %.o: %.c $(HEAD)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -47,18 +54,6 @@ alclean: fclean
 	make fclean -C utils/gnl
 	make clean -C minilibx_mms_20200219/
 	if [ ! -d libraries ]; then mkdir libraries; fi
-
-LIBFT:
-	make -C utils/libft
-	cp utils/libft/libft.a ./libraries
-
-GNL:
-	make -C utils/gnl
-
-MLX:
-	make -C minilibx_mms_20200219/
-	cp minilibx_mms_20200219/libmlx.dylib ./libraries
-	cp minilibx_mms_20200219/libmlx.dylib .
 
 re: fclean all
 cl: all clean
