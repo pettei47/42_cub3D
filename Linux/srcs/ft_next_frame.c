@@ -73,10 +73,10 @@ static void	*load_img(t_all *a, char *path, int i)
 
 void		load_tex(t_all *a)
 {
-	load_img(a, a->e->north, 0);
-	load_img(a, a->e->south, 1);
-	load_img(a, a->e->west, 2);
-	load_img(a, a->e->east, 3);
+	load_img(a, a->e->north, 1);
+	load_img(a, a->e->south, 0);
+	load_img(a, a->e->west, 3);
+	load_img(a, a->e->east, 2);
 	load_img(a, a->e->sprite, 4);
 }
 
