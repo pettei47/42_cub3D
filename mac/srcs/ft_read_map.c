@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 14:15:03 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/14 00:19:58 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/26 18:54:00 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,21 @@ void	check_cub(int argc, char **argv, t_elem *e)
 	}
 }
 
+void	ft_rev_map(char **map, int size)
+{
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	while (i < size / 2)
+	{
+		tmp = map[i];
+		map[i] = map[size - i - 1];
+		map[size - i - 1] = tmp;
+		i++;
+	}
+}
+
 int		ft_read_map(int *bit, int fd, char **line, t_elem *e)
 {
 	int		ret;
@@ -61,6 +76,7 @@ int		ft_read_map(int *bit, int fd, char **line, t_elem *e)
 	if (i >= MAP_HEIGHT)
 		error("too big map (y)");
 	SAFE_FREE(*line);
+	ft_rev_map(e->map, i);
 	return (i);
 }
 

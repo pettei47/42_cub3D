@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+         #
+#    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2020/12/23 02:44:54 by teppei           ###   ########.fr        #
+#    Updated: 2020/12/26 18:14:22 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,9 +46,6 @@ alclean: fclean
 	make fclean -C utils/libft
 	make fclean -C utils/gnl
 	make clean -C minilibx_mms_20200219/
-	rm -f libmlx.dylib
-	rm -f libraries/*.a
-	rm -f libraries/libmlx.dylib
 	if [ ! -d libraries ]; then mkdir libraries; fi
 
 LIBFT:
