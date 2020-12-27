@@ -70,9 +70,9 @@ static void	dda_algo(t_raycasting *rc, t_all *a)
 			rc->map_x += rc->step_x;
 			rc->side = 0;
 			if (rc->step_x == 1)
-				rc->tex_num = 3;
-			else
 				rc->tex_num = 2;
+			else
+				rc->tex_num = 3;
 		}
 		else
 		{
@@ -80,9 +80,9 @@ static void	dda_algo(t_raycasting *rc, t_all *a)
 			rc->map_y += rc->step_y;
 			rc->side = 1;
 			if (rc->step_y == 1)
-				rc->tex_num = 0;
-			else
 				rc->tex_num = 1;
+			else
+				rc->tex_num = 0;
 		}
 		if (a->e->map[rc->map_y][rc->map_x] == '1')
 			break ;

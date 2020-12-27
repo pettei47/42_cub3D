@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:28:32 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/15 09:47:37 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/27 14:45:07 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,7 @@ void			get_sprite(t_all *a);
 void			set_move_speed(t_all *a);
 int				press_key(int key, void *a);
 int				release_key(int key, void *a);
-int				next_frame(void *a);
+int				next_frame(t_all *a);
 int				quit_normally(void *a);
 int				only_d(char *str, char c);
 void			movement(t_all *a);

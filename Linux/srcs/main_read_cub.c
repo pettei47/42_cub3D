@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 00:26:18 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/27 01:07:10 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/27 16:23:55 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,21 @@
 
 void	my_free_a(t_all *a)
 {
+	int	tex;
+
+	tex = 0;
+	if (a->tex[0].w > 0)
+	{
+		while (tex < 5)
+		{
+			SAFE_FREE(a->tex[tex].addr);
+			tex++;
+		}
+	}
 	my_free_e(a->e);
 	if (a->e->num_sp > 0)
 		SAFE_FREE(a->sp);
+
 }
 
 void	init_a(t_all *a)
@@ -33,6 +45,7 @@ void	init_a(t_all *a)
 	a->key.l = 0;
 	a->key.r = 0;
 	a->key.esc = 0;
+	a->tex[0].w = 0;
 }
 
 int		quit_normally(void *a)
@@ -53,6 +66,7 @@ void	run_mlx(t_all *a)
 	mlx_hook(a->win, 2, 1L << 0, press_key, a);
 	mlx_hook(a->win, 3, 1L << 1, release_key, a);
 	mlx_hook(a->win, 17, 1L << 17, quit_normally, a);
+	load_tex(a);
 	mlx_loop_hook(a->mlx_p, next_frame, a);
 	mlx_loop(a->mlx_p);
 }

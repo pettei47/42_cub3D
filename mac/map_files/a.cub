@@ -4,7 +4,7 @@ SO ./images/minami.xpm
 WE ./images/nishi.xpm
 EA ./images/higashi.xpm
 
-S ./images/eagle.xpm
+S ./images/barrel.xpm
 F 220,100,0
 C 225,30,0
 
