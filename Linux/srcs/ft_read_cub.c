@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 00:59:44 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/14 00:35:50 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/29 22:32:37 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	ft_chk_elem1(char **s, t_elem *e, int *bit)
 	if ((ft_strncmp(s[0], "R", 2) == 0) && e->win_x < 0 && my_c_ptr(s) == 3)
 	{
 		*bit += my_power(10, 7);
-		if (only_d(s[1], ' ') == 0)
+		if (only_d(s[1], ' ') == 0 || only_d(s[2], ' ') == 0)
 			error_free("window size must be 0 ~ 255", e);
 		e->win_x = ft_atoi(s[1]);
 		e->win_y = ft_atoi(s[2]);

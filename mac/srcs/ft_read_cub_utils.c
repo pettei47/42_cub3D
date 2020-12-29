@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:31:07 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/14 00:18:25 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/29 22:01:06 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ void	my_e_reset2(t_elem *e)
 	e->plane_y = -42.0;
 	e->num_sp = 0;
 	e->save = 0;
+	e->north = NULL;
+	e->south = NULL;
+	e->west = NULL;
+	e->east = NULL;
+	e->sprite = NULL;
 }
 
 void	my_e_reset(t_elem *e)
