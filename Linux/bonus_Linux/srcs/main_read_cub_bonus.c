@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_read_cub.c                                    :+:      :+:    :+:   */
+/*   main_read_cub_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 00:26:18 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/29 18:11:19 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/29 23:05:16 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 void	my_free_a(t_all *a)
 {
@@ -28,16 +28,12 @@ void	my_free_a(t_all *a)
 	my_free_e(a->e);
 	if (a->e->num_sp > 0)
 		SAFE_FREE(a->sp);
-
 }
 
 void	init_a(t_all *a)
 {
-	if (!(a->mlx_p = mlx_init()))
-	{
-		my_free_a(a);
-		error("in init_a: Failed to mlx_init");
-	}
+	int	i;
+
 	a->key.w = 0;
 	a->key.a = 0;
 	a->key.s = 0;
@@ -46,6 +42,14 @@ void	init_a(t_all *a)
 	a->key.r = 0;
 	a->key.esc = 0;
 	a->tex[0].w = 0;
+	i = 0;
+	while (i < 5)
+		a->tex[i++].addr = NULL;
+	if (!(a->mlx_p = mlx_init()))
+	{
+		my_free_a(a);
+		error("in init_a: Failed to mlx_init");
+	}
 }
 
 int		quit_normally(void *a)
@@ -95,6 +99,5 @@ int		main(int argc, char **argv)
 	ft_putstr_fd(DEFAULT, 1);
 	run_mlx(&a);
 	quit_normally(&a);
-	exit(0);
 	return (0);
 }
