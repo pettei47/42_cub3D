@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2020/12/23 02:53:06 by teppei           ###   ########.fr        #
+#    Updated: 2020/12/29 19:51:42 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,15 +46,26 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-alclean: fclean
+alclean: fclean bfclean
 	make fclean -C utils/libft
 	make fclean -C utils/gnl
 	make clean -C minilibx-linux/
 	rm -f libraries/*.a
+	rm -f cub3D_bonus
 	if [ ! -d libraries ]; then mkdir libraries; fi
 
 re: fclean all
 cl: all clean
 reall: alclean all
 
-.PHONY: all clean fclean re cl alclean reall
+bonus:
+	make -C bonus_Linux
+	cp bonus_Linux/cub3D_bonus .
+
+bclean:
+	make clean -C bonus_Linux
+
+bfclean:
+	make fclean -C bonus_Linux
+
+.PHONY: all clean fclean re cl alclean reall bonus bclean bfclean

@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 07:00:32 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/27 16:22:29 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/29 19:26:05 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static void	*load_img(t_all *a, char *path, int i)
 		error("image file error");
 	}
 	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line, &img.endian);
-	if (!(a->tex[i].addr = (uint32_t *)malloc(sizeof(uint32_t) * img.w * img.h)))
+	if (!(a->tex[i].addr = \
+				(uint32_t *)malloc(sizeof(uint32_t) * img.w * img.h)))
 	{
 		my_free_a(a);
 		error("malloc in load_image");

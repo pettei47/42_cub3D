@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2020/12/26 20:56:40 by teppei           ###   ########.fr        #
+#    Updated: 2020/12/29 19:51:22 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJS) */*.gch
+	rm -f libmlx.dylib
 	rm -rf *.dSYM
 	rm -f *.bmp
 	rm -f */*.bmp
@@ -49,14 +50,25 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-alclean: fclean
+alclean: fclean bfclean
 	make fclean -C utils/libft
 	make fclean -C utils/gnl
 	make clean -C minilibx_mms_20200219/
+	rm cub3D_bonus
 	if [ ! -d libraries ]; then mkdir libraries; fi
 
 re: fclean all
 cl: all clean
 reall: alclean all
 
-.PHONY: all clean fclean re cl alclean reall
+bonus:
+	make -C bonus_mac
+	cp bonus_mac/cub3D_bonus .
+
+bclean:
+	make clean -C bonus_mac
+
+bfclean:
+	make fclean -C bonus_mac
+
+.PHONY: all clean fclean re cl alclean reall bonus bclean bfclean

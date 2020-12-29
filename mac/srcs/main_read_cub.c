@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 00:26:18 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/27 16:23:55 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/29 19:24:52 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	my_free_a(t_all *a)
 	my_free_e(a->e);
 	if (a->e->num_sp > 0)
 		SAFE_FREE(a->sp);
-
 }
 
 void	init_a(t_all *a)
@@ -94,6 +93,6 @@ int		main(int argc, char **argv)
 	ft_putstr_fd("*** SUCCESS LOAD CUB ***\n", 1);
 	ft_putstr_fd(DEFAULT, 1);
 	run_mlx(&a);
-	my_free_a(&a);
+	quit_normally(&a);
 	return (0);
 }
