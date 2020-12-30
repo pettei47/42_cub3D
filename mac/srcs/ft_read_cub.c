@@ -19,11 +19,14 @@ int	ft_chk_elem4(char **s, t_elem *e, int *bit)
 	if ((ft_strncmp(s[0], "C", 2) == 0) && e->cr < 0 && my_c_ptr(s) == 2)
 	{
 		*bit += my_power(10, 1);
-		if (only_d(s[1], ',') > 3)
+		if (only_d(s[1], ',') > 2)
 			error_free("C must be three numbers", e);
 		c_rgb = ft_split(s[1], ',');
-		if (my_c_ptr(c_rgb) != 3)
-			error_free("element C must have 3 contents", e);
+		if (my_c_ptr(c_rgb) != 3
+			|| (c_rgb[0][0] == '0' && ft_strlen(c_rgb[0]) != 1)
+			|| (c_rgb[1][0] == '0' && ft_strlen(c_rgb[1]) != 1)
+			|| (c_rgb[2][0] == '0' && ft_strlen(c_rgb[2]) != 1))
+			error_free("C must have 3 numbers start without 0", e);
 		e->cr = ft_atoi(c_rgb[0]);
 		e->cg = ft_atoi(c_rgb[1]);
 		e->cb = ft_atoi(c_rgb[2]);
@@ -44,11 +47,14 @@ int	ft_chk_elem3(char **s, t_elem *e, int *bit)
 	if ((ft_strncmp(s[0], "F", 2) == 0) && e->fr < 0 && my_c_ptr(s) == 2)
 	{
 		*bit += my_power(10, 1);
-		if (only_d(s[1], ',') > 3)
+		if (only_d(s[1], ',') > 2)
 			error_free("F must be three numbers", e);
 		f_rgb = ft_split(s[1], ',');
-		if (my_c_ptr(f_rgb) != 3)
-			error_free("element F must have 3 contents", e);
+		if (my_c_ptr(f_rgb) != 3
+			|| (f_rgb[0][0] == '0' && ft_strlen(f_rgb[0]) != 1)
+			|| (f_rgb[1][0] == '0' && ft_strlen(f_rgb[1]) != 1)
+			|| (f_rgb[2][0] == '0' && ft_strlen(f_rgb[2]) != 1))
+			error_free("F must have 3 numbers start without 0", e);
 		e->fr = ft_atoi(f_rgb[0]);
 		e->fg = ft_atoi(f_rgb[1]);
 		e->fb = ft_atoi(f_rgb[2]);
