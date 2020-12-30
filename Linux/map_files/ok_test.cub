@@ -1,11 +1,11 @@
-R 0399 380
-NO ./images/0.xpm
-SO ./images/1.xpm
-WE ./images/2.xpm
-EA ./images/3.xpm
+R 520 380
+NO ./images/kita.xpm
+SO ./images/minami.xpm
+WE ./images/nishi.xpm
+EA ./images/higashi.xpm
 
 S ./images/eagle.xpm
-F 022,100,0
+F 220,100,0
 C 225,30,0
 
 
