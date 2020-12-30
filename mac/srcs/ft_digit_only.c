@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 12:31:05 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/14 00:34:10 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/30 13:01:14 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 int	only_d(char *str, char c)
 {
-	int i;
+	int	i;
+	int	ret;
 
 	i = 0;
+	ret = 0;
 	while (str[i] != '\0')
 	{
 		if ((str[i] < '0' || '9' < str[i]) && str[i] != c)
-			return (0);
+			return (4);
+		if (str[i] == c)
+			ret++;
 		i++;
 	}
-	return (1);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 00:59:44 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/29 22:32:37 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/30 13:05:42 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_chk_elem4(char **s, t_elem *e, int *bit)
 	if ((ft_strncmp(s[0], "C", 2) == 0) && e->cr < 0 && my_c_ptr(s) == 2)
 	{
 		*bit += my_power(10, 1);
-		if (only_d(s[1], ',') == 0)
-			error_free("C must be 0 ~ 255", e);
+		if (only_d(s[1], ',') > 3)
+			error_free("C must be three numbers", e);
 		c_rgb = ft_split(s[1], ',');
 		if (my_c_ptr(c_rgb) != 3)
 			error_free("element C must have 3 contents", e);
@@ -44,8 +44,8 @@ int	ft_chk_elem3(char **s, t_elem *e, int *bit)
 	if ((ft_strncmp(s[0], "F", 2) == 0) && e->fr < 0 && my_c_ptr(s) == 2)
 	{
 		*bit += my_power(10, 1);
-		if (only_d(s[1], ',') == 0)
-			error_free("F must be 0 ~ 255", e);
+		if (only_d(s[1], ',') > 3)
+			error_free("F must be three numbers", e);
 		f_rgb = ft_split(s[1], ',');
 		if (my_c_ptr(f_rgb) != 3)
 			error_free("element F must have 3 contents", e);
@@ -91,7 +91,7 @@ int	ft_chk_elem1(char **s, t_elem *e, int *bit)
 	if ((ft_strncmp(s[0], "R", 2) == 0) && e->win_x < 0 && my_c_ptr(s) == 3)
 	{
 		*bit += my_power(10, 7);
-		if (only_d(s[1], ' ') == 0 || only_d(s[2], ' ') == 0)
+		if (only_d(s[1], ' ') == 4 || only_d(s[2], ' ') == 4)
 			error_free("window size must be 0 ~ 255", e);
 		e->win_x = ft_atoi(s[1]);
 		e->win_y = ft_atoi(s[2]);
