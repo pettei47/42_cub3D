@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:28:32 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/27 14:45:07 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/30 13:15:41 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ typedef struct	s_tex
 
 typedef struct	s_elem
 {
-	int			win_x;
-	int			win_y;
+	long		win_x;
+	long		win_y;
 	char		*north;
 	char		*south;
 	char		*west;

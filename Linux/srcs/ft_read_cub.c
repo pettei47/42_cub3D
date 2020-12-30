@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 00:59:44 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/30 13:05:42 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/30 13:58:43 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,11 @@ int	ft_chk_elem2(char **s, t_elem *e, int *bit)
 		*bit += my_power(10, 2);
 		e->sprite = ft_strdup(s[1]);
 	}
+	else if ((ft_strncmp(s[0], "SO", 3) == 0) && !e->south && my_c_ptr(s) == 2)
+	{
+		*bit += my_power(10, 5);
+		e->south = ft_strdup(s[1]);
+	}
 	else
 		return (ft_chk_elem3(s, e, bit));
 	return (1);
@@ -92,19 +97,16 @@ int	ft_chk_elem1(char **s, t_elem *e, int *bit)
 	{
 		*bit += my_power(10, 7);
 		if (only_d(s[1], ' ') == 4 || only_d(s[2], ' ') == 4)
-			error_free("window size must be 0 ~ 255", e);
-		e->win_x = ft_atoi(s[1]);
-		e->win_y = ft_atoi(s[2]);
+			error_free("window size must be number", e);
+		if (s[1][0] == '0' || s[2][0] == '0')
+			error_free("window size invalid", e);
+		e->win_x = ft_strlen(s[1]) > 7 ? 10000 : ft_atoi(s[1]);
+		e->win_y = ft_strlen(s[2]) > 7 ? 10000 : ft_atoi(s[2]);
 	}
 	else if ((ft_strncmp(s[0], "NO", 3) == 0) && !e->north && my_c_ptr(s) == 2)
 	{
 		*bit += my_power(10, 6);
 		e->north = ft_strdup(s[1]);
-	}
-	else if ((ft_strncmp(s[0], "SO", 3) == 0) && !e->south && my_c_ptr(s) == 2)
-	{
-		*bit += my_power(10, 5);
-		e->south = ft_strdup(s[1]);
 	}
 	else
 		return (ft_chk_elem2(s, e, bit));

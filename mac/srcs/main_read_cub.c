@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 00:26:18 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/30 12:29:40 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/30 13:20:43 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	init_a(t_all *a)
 int		quit_normally(void *a)
 {
 	my_free_a(a);
-	while (1);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
