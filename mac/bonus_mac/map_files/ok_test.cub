@@ -1,6 +1,6 @@
 R 640 380
-NO ./images/kita.xpm
-SO ./images/minami.xpm
+NO ./images/0.xpm
+SO ./images/1.xpm
 WE ./images/nishi.xpm
 EA ./images/higashi.xpm
 

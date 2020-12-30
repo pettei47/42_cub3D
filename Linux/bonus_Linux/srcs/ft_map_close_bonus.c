@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 static void	dfs(char check[MAP_HEIGHT][MAP_WIDTH], int y, int x, int *c)
 {

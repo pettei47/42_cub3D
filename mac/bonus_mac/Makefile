@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2020/12/29 18:56:02 by teppei           ###   ########.fr        #
+#    Updated: 2020/12/30 12:32:18 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS	=	srcs/ft_read_cub_bonus.c srcs/ft_read_cub_utils_bonus.c srcs/ft_read_map_
 			srcs/main_read_cub_bonus.c
 OBJS	=	$(SRCS:%.c=%.o)
 
-HEAD	=	./includes/cub3d.h
+HEAD	=	./includes/cub3d_bonus.h
 INCS	=	-I./includes
 LINK	=	-L./libraries
 LIBS	=	-lft -lgnl -lmlx

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wall_render.c                                   :+:      :+:    :+:   */
+/*   ft_wall_render_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 08:36:56 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/13 20:43:38 by teppei           ###   ########.fr       */
+/*   Updated: 2020/12/30 12:20:49 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 static void	calc_draw_param(t_raycasting *rc, t_all *a)
 {
@@ -52,7 +52,7 @@ static void	draw_wall(t_raycasting *rc, t_all *a, int x)
 	y = rc->draw_start;
 	while (y < rc->draw_end)
 	{
-		rc->tex_y = (int)rc->tex_pos & (tex_height - 1);
+		rc->tex_y = fmin((int)rc->tex_pos, (tex_height - 1));
 		rc->tex_pos += rc->step;
 		color = a->tex[rc->tex_num].addr[tex_height * rc->tex_y + rc->tex_x];
 		my_mlx_pixel_put(&a->img, x, y, color);
