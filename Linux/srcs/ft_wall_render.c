@@ -48,7 +48,7 @@ static void	draw_wall(t_raycasting *rc, t_all *a, int x)
 	int			y;
 
 	calc_draw_param(rc, a);
-	tex_height = a->tex[rc->tex_num].h;
+	tex_height = a->tex[rc->tex_num].w;
 	y = rc->draw_start;
 	while (y < rc->draw_end)
 	{
