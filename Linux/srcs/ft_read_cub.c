@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_cub.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teppei <teppei@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: suchida <suchida@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 00:59:44 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/30 13:58:43 by teppei           ###   ########.fr       */
+/*   Created: 2020/11/23 00:59:44 by suchida           #+#    #+#             */
+/*   Updated: 2021/01/02 19:54:03 by suchida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,10 @@ int	ft_chk_elem1(char **s, t_elem *e, int *bit)
 			error_free("window size must be number", e);
 		if (s[1][0] == '0' || s[2][0] == '0')
 			error_free("window size invalid", e);
-		e->win_x = ft_strlen(s[1]) > 7 ? 10000 : ft_atoi(s[1]);
-		e->win_y = ft_strlen(s[2]) > 7 ? 10000 : ft_atoi(s[2]);
+		e->win_x = (ft_strlen(s[1]) > 7 || ft_atoi(s[1]) > 1920)
+			? 1920 : ft_atoi(s[1]);
+		e->win_y = (ft_strlen(s[2]) > 7 || ft_atoi(s[2]) > 996)
+			? 996 : ft_atoi(s[2]);
 	}
 	else if ((ft_strncmp(s[0], "NO", 3) == 0) && !e->north && my_c_ptr(s) == 2)
 	{
