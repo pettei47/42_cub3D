@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
+/*   By: suchida <suchida@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 01:28:32 by teppei            #+#    #+#             */
-/*   Updated: 2020/12/27 14:45:07 by teppei           ###   ########.fr       */
+/*   Created: 2020/11/23 01:28:32 by suchida           #+#    #+#             */
+/*   Updated: 2020/12/27 14:45:07 by suchida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
